@@ -21,7 +21,7 @@ namespace ariel
         MagicalContainer(){};
         void addElement(int element);
         void removeElement(int element);
-        int size() const { return elements.size(); }
+        int size() const { return (int)elements.size(); }
 
         /* AscendingIterator */
         class AscendingIterator
