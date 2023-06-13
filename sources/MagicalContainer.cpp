@@ -17,11 +17,9 @@ void MagicalContainer::addElement(int element)
 
     ascendingElements.push_back(&(*it));
 
-    // Sort ascendingElements
     std::sort(ascendingElements.begin(), ascendingElements.end(),
               [](const int* a, const int* b) { return *a < *b; });
 
-    // Update sideCrossElements
     sideCrossElements.clear();
     size_t begin = 0;
     size_t end = (size_t)size() - 1;
@@ -113,7 +111,7 @@ MagicalContainer::AscendingIterator &MagicalContainer::AscendingIterator::operat
     return *this;
 }
 
-MagicalContainer::AscendingIterator &MagicalContainer::AscendingIterator::operator=(AscendingIterator &&other)
+MagicalContainer::AscendingIterator &MagicalContainer::AscendingIterator::operator=(AscendingIterator &&other) noexcept
 {
 
     container = other.container;
@@ -160,7 +158,7 @@ int MagicalContainer::SideCrossIterator::operator*() const
 {
     return *(container.sideCrossElements[index]);
 }
-MagicalContainer::SideCrossIterator &MagicalContainer::SideCrossIterator::operator=(SideCrossIterator &&other)
+MagicalContainer::SideCrossIterator &MagicalContainer::SideCrossIterator::operator=(SideCrossIterator &&other) noexcept
 {
 
     container = other.container;
@@ -230,7 +228,7 @@ MagicalContainer::PrimeIterator &MagicalContainer::PrimeIterator::operator=(cons
     return *this;
 }
 
-MagicalContainer::PrimeIterator &MagicalContainer::PrimeIterator::operator=(PrimeIterator &&other)
+MagicalContainer::PrimeIterator &MagicalContainer::PrimeIterator::operator=(PrimeIterator &&other) noexcept
 {
 
     container = other.container;
